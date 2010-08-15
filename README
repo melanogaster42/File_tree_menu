@@ -1,0 +1,18 @@
+Copy the script to some convenient file and then edit these lines:
+#modify the lines bellow accordingly
+path = '/home/your-user-name/'
+
+filetosave = open('/home/your-user-name/.config/awesome/myplacesmenu.lua', 'w')
+replace your-user-name with your user name. Save and run the script. It will create a myplacesmenu.lua file in ~/.config/awesome/. To use your new file menu add:
+require("myplacesmenu")
+near the top of your ~/.config/awesome/rc.lua file and then add this entry to your menu.
+{ "files", myplacesmenu.myplacesmenu()},
+Example:
+myawesomemenu = { { "files", myplacesmenu.myplacesmenu()},
+   { "manual", "urxvt -e man awesome" },
+  { "edit config", "urxvt -e vim /home/michaelmath/.config/awesome/rc.lua.new" },
+  { "restart", awesome.restart },
+  { "make default", "/home/michaelmath/scripts/rcmv.sh"},
+  {"debug", "urxvt -e /home/michaelmath/scripts/Awdebug.sh"},
+  { "quit", awesome.quit },
+  { "Log out", "/home/michaelmath/scripts/shutdown_dialog.sh"} }
